@@ -31,7 +31,7 @@ Wraps the [`synchestra` CLI](https://github.com/synchestra-io/synchestra) as age
 
 ### `specscore`
 
-Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore) as agent skills. Teaches AI agents how to use `specscore` for spec navigation, linting, and lifecycle operations. Pairs with `specstudio` for the full authoring experience.
+Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore-cli) as agent skills. Teaches AI agents how to use `specscore` for spec navigation, linting, and lifecycle operations. Pairs with `specstudio` for the full authoring experience.
 
 ### `specstudio`
 
