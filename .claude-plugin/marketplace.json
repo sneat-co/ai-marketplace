@@ -5,12 +5,12 @@
   },
   "plugins": [
     {
-      "name": "synchestra-cli",
+      "name": "synchestra",
       "source": {
         "source": "github",
         "repo": "synchestra-io/ai-plugin-synchestra"
       },
-      "description": "Synchestra CLI plugin: skills, commands, and hooks that teach AI agents how to use the synchestra CLI"
+      "description": "Synchestra plugin: skills, commands, and hooks that teach AI agents how to use the synchestra CLI"
     },
     {
       "name": "specscore",
