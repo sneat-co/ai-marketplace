@@ -14,7 +14,7 @@ Then install any plugin from it:
 
 ```
 /plugin install synchestra-cli@synchestra-io
-/plugin install specstudio-skills@synchestra-io
+/plugin install specstudio@synchestra-io
 ```
 
 ## Plugins
@@ -23,7 +23,7 @@ Then install any plugin from it:
 |---|---|---|
 | `synchestra-cli` | `/plugin install synchestra-cli@synchestra-io` | [ai-plugin-synchestra](https://github.com/synchestra-io/ai-plugin-synchestra) |
 | `specscore` | `/plugin install specscore@synchestra-io` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
-| `specstudio-skills` | `/plugin install specstudio-skills@synchestra-io` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
+| `specstudio` | `/plugin install specstudio@synchestra-io` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
 
 ### `synchestra-cli`
 
@@ -31,11 +31,11 @@ Wraps the [`synchestra` CLI](https://github.com/synchestra-io/synchestra) as age
 
 ### `specscore`
 
-Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore) as agent skills. Teaches AI agents how to use `specscore` for spec navigation, linting, and lifecycle operations. Pairs with `specstudio-skills` for the full authoring experience.
+Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore) as agent skills. Teaches AI agents how to use `specscore` for spec navigation, linting, and lifecycle operations. Pairs with `specstudio` for the full authoring experience.
 
-### `specstudio-skills`
+### `specstudio`
 
-SpecStudio's AI skills for spec-driven development as a project-level studio — ideate, design, and (on the roadmap) plan, build, verify, recap, review, ship. Gates implementation on lint-clean SpecScore artifacts and user approval. Works standalone with Claude Code; pairs with Synchestra Hub for remote execution. Skill identifiers use the `specstudio:*` prefix (e.g., `specstudio:ideate`, `specstudio:specify`).
+SpecStudio's AI skills for spec-driven development as a project-level studio — ideate, design, and (on the roadmap) plan, build, verify, recap, review, ship. Gates implementation on lint-clean SpecScore artifacts and user approval. Works standalone with Claude Code; pairs with Synchestra Hub for remote execution. Skill identifiers use the `specstudio:*` prefix (e.g., `specstudio:ideate`, `specstudio:specify`). Distributed from [`specstudio-skills`](https://github.com/synchestra-io/specstudio-skills).
 
 ## Why a meta-marketplace
 

@@ -21,7 +21,7 @@
       "description": "SpecScore CLI plugin: skills that teach AI agents how to use the specscore CLI for spec navigation, linting, and lifecycle operations"
     },
     {
-      "name": "specstudio-skills",
+      "name": "specstudio",
       "source": {
         "source": "github",
         "repo": "synchestra-io/specstudio-skills"
