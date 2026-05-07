@@ -21,12 +21,12 @@
       "description": "SpecScore CLI plugin: skills that teach AI agents how to use the specscore CLI for spec navigation, linting, and lifecycle operations"
     },
     {
-      "name": "spec-studio",
+      "name": "specstudio-skills",
       "source": {
         "source": "github",
-        "repo": "synchestra-io/spec-studio"
+        "repo": "synchestra-io/specstudio-skills"
       },
-      "description": "Spec Studio — AI skills for spec-driven development: specify, plan, build, verify, review, ship. Turns vague ideas into lint-clean SpecScore artifacts and gates implementation on approval."
+      "description": "SpecStudio — AI skills for spec-driven development: specify, plan, build, verify, review, ship. Turns vague ideas into lint-clean SpecScore artifacts and gates implementation on approval."
     }
   ]
 }
