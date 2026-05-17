@@ -1,13 +1,13 @@
-# Synchestra AI Marketplace
+# AI Marketplace
 
-Claude Code marketplace for plugins published by [Synchestra.io](https://synchestra.io).
+Claude Code marketplace for AI plugins published across the projects listed below.
 
 ## Install
 
 Add this marketplace to Claude Code once:
 
 ```
-/plugin marketplace add synchestra-io/ai-marketplace
+/plugin marketplace add sneat-co/ai-marketplace
 ```
 
 Then install any plugin from it:
@@ -17,13 +17,26 @@ Then install any plugin from it:
 /plugin install specstudio@synchestra-io
 ```
 
-## Plugins
+## Plugins by project
+
+### [Synchestra.io](https://synchestra.io)
 
 | Plugin | Install | Repository |
 |---|---|---|
 | `synchestra` | `/plugin install synchestra@synchestra-io` | [ai-plugin-synchestra](https://github.com/synchestra-io/ai-plugin-synchestra) |
 | `specscore` | `/plugin install specscore@synchestra-io` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
 | `specstudio` | `/plugin install specstudio@synchestra-io` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
+
+### Planned
+
+| Project | Status | Repository |
+|---|---|---|
+| inGitDB | planned | [ingitdb/ingitdb-cli](https://github.com/ingitdb/ingitdb-cli) |
+| ingr-io | planned | [ingr-io](https://github.com/ingr-io) |
+| DataTug | planned | [datatug/datatug-cli](https://github.com/datatug/datatug-cli) |
+| Sneat CLI | planned | [sneat-co/sneat-go-cli](https://github.com/sneat-co/sneat-go-cli) |
+
+## Plugin details
 
 ### `synchestra`
 
@@ -39,11 +52,11 @@ SpecStudio's AI skills for spec-driven development as a project-level studio —
 
 ## Why a meta-marketplace
 
-Each plugin lives in its own repository (`ai-plugin-*`). This marketplace is a thin index that lists them, so a single `marketplace add` gives users all Synchestra-published plugins. Plugins retain independent release cadence, independent CI, and independent ownership. See [ADR-0001](https://github.com/synchestra-io/synchestra/blob/main/spec/decisions/0001-extract-ai-plugin.md) in the synchestra repo for the reasoning behind this structure.
+Each plugin lives in its own repository (`ai-plugin-*`). This marketplace is a thin index that lists them, so a single `marketplace add` gives users all published plugins. Plugins retain independent release cadence, independent CI, and independent ownership. See [ADR-0001](https://github.com/synchestra-io/synchestra/blob/main/spec/decisions/0001-extract-ai-plugin.md) in the synchestra repo for the reasoning behind this structure.
 
 ## Contributing a plugin
 
-External plugins are not accepted into this marketplace at this time — it is reserved for Synchestra-published plugins. Third parties are encouraged to publish their own marketplace; Claude Code supports multiple marketplaces per user.
+External plugins are not accepted into this marketplace at this time — it is reserved for plugins published by the projects listed above. Third parties are encouraged to publish their own marketplace; Claude Code supports multiple marketplaces per user.
 
 ## License
 
