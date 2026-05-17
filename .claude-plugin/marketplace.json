@@ -27,6 +27,22 @@
         "repo": "synchestra-io/specstudio-skills"
       },
       "description": "SpecStudio — AI skills for spec-driven development: specify, plan, build, verify, review, ship. Turns vague ideas into lint-clean SpecScore artifacts and gates implementation on approval."
+    },
+    {
+      "name": "ingitdb",
+      "source": {
+        "source": "github",
+        "repo": "ingitdb/ingitdb-ai-skills"
+      },
+      "description": "inGitDB CLI plugin: skills that teach AI agents how to use the ingitdb CLI for Git-backed database operations — validate, list, describe, CRUD, and serve."
+    },
+    {
+      "name": "datatug",
+      "source": {
+        "source": "github",
+        "repo": "datatug/datatug-ai-skills"
+      },
+      "description": "DataTug CLI plugin: skills that teach AI agents how to use the datatug CLI for data exploration, dataset management, schema scanning, and query execution."
     }
   ]
 }

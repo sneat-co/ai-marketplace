@@ -27,13 +27,23 @@ Then install any plugin from it:
 | `specscore` | `/plugin install specscore@sneat-co` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
 | `specstudio` | `/plugin install specstudio@sneat-co` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
 
+### [inGitDB](https://ingitdb.com)
+
+| Plugin | Install | Repository |
+|---|---|---|
+| `ingitdb` | `/plugin install ingitdb@sneat-co` | [ingitdb-ai-skills](https://github.com/ingitdb/ingitdb-ai-skills) |
+
+### [DataTug](https://datatug.app)
+
+| Plugin | Install | Repository |
+|---|---|---|
+| `datatug` | `/plugin install datatug@sneat-co` | [datatug-ai-skills](https://github.com/datatug/datatug-ai-skills) |
+
 ### Planned
 
 | Project | Status | Repository |
 |---|---|---|
-| inGitDB | planned | [ingitdb/ingitdb-cli](https://github.com/ingitdb/ingitdb-cli) |
 | ingr-io | planned | [ingr-io](https://github.com/ingr-io) |
-| DataTug | planned | [datatug/datatug-cli](https://github.com/datatug/datatug-cli) |
 | Sneat CLI | planned | [sneat-co/sneat-go-cli](https://github.com/sneat-co/sneat-go-cli) |
 
 ## Plugin details
@@ -49,6 +59,14 @@ Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore-cli) as a
 ### `specstudio`
 
 SpecStudio's AI skills for spec-driven development as a project-level studio — ideate, design, and (on the roadmap) plan, build, verify, recap, review, ship. Gates implementation on lint-clean SpecScore artifacts and user approval. Works standalone with Claude Code; pairs with Synchestra Hub for remote execution. Skill identifiers use the `specstudio:*` prefix (e.g., `specstudio:ideate`, `specstudio:specify`). Distributed from [`specstudio-skills`](https://github.com/synchestra-io/specstudio-skills).
+
+### `ingitdb`
+
+Wraps the [`ingitdb` CLI](https://github.com/ingitdb/ingitdb-cli) as agent skills. Teaches AI agents how to use `ingitdb` for Git-backed database operations: schema validation, record CRUD, materialized views, and serving the database over MCP/HTTP. Distributed from [`ingitdb-ai-skills`](https://github.com/ingitdb/ingitdb-ai-skills).
+
+### `datatug`
+
+Wraps the [`datatug` CLI](https://github.com/datatug/datatug-cli) as agent skills. Teaches AI agents how to use `datatug` for data exploration, dataset management, schema scanning, and query execution. Distributed from [`datatug-ai-skills`](https://github.com/datatug/datatug-ai-skills).
 
 ## Why a meta-marketplace
 
