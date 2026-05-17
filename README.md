@@ -13,8 +13,8 @@ Add this marketplace to Claude Code once:
 Then install any plugin from it:
 
 ```
-/plugin install synchestra@synchestra-io
-/plugin install specstudio@synchestra-io
+/plugin install synchestra@sneat-co
+/plugin install specstudio@sneat-co
 ```
 
 ## Plugins by project
@@ -23,9 +23,9 @@ Then install any plugin from it:
 
 | Plugin | Install | Repository |
 |---|---|---|
-| `synchestra` | `/plugin install synchestra@synchestra-io` | [ai-plugin-synchestra](https://github.com/synchestra-io/ai-plugin-synchestra) |
-| `specscore` | `/plugin install specscore@synchestra-io` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
-| `specstudio` | `/plugin install specstudio@synchestra-io` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
+| `synchestra` | `/plugin install synchestra@sneat-co` | [ai-plugin-synchestra](https://github.com/synchestra-io/ai-plugin-synchestra) |
+| `specscore` | `/plugin install specscore@sneat-co` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
+| `specstudio` | `/plugin install specstudio@sneat-co` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
 
 ### Planned
 
