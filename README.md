@@ -33,7 +33,7 @@ Then install any plugin from it:
 |---|---|---|
 | `ingitdb` | `/plugin install ingitdb@sneat-co` | [ingitdb-ai-skills](https://github.com/ingitdb/ingitdb-ai-skills) |
 
-### [DataTug](https://datatug.app)
+### [DataTug](https://datatug.io)
 
 | Plugin | Install | Repository |
 |---|---|---|
