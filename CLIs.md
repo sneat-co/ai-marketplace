@@ -3,6 +3,8 @@
 Inventory of command-line tools published across the projects indexed by this marketplace, the channels each ships through today, and the unified pattern they should converge on.
 
 > **CLIs vs Plugins.** This file lists **CLIs** — Go binaries humans (and CI) install on a workstation or build agent. The plugins listed in [README.md](README.md) are a different artifact: Claude Code skill bundles that *wrap* these CLIs so AI agents call them correctly. The two are complementary; each CLI typically has a corresponding plugin.
+>
+> **Scope.** AI-facing CLIs (those with a paired Claude Code plugin) sit at the top of the matrix. **Server/operator CLIs** that share the same install infrastructure (`synchestra-host`, `synchestra-channel`, `synchestra-runner`) are listed below them so all install scripts have a single home — even when there's no AI plugin counterpart.
 
 ## Quick install matrix
 
@@ -11,16 +13,21 @@ Inventory of command-line tools published across the projects indexed by this ma
 | **[specscore-cli](https://github.com/synchestra-io/specscore-cli)**<br>*[install](https://specscore.md/install)* | ✅ [`get-cli`](https://specscore.md/install/get-cli) | ✅ [`get-cli.ps1`](https://specscore.md/install/get-cli.ps1) | ✅ pending tap repo¹ | ✅ `Synchestra.SpecScore` | ✅ `synchestra-io/specscore` | — | — | ✅ | [`specscore@sneat-co`](https://github.com/synchestra-io/ai-plugin-specscore) | [`specscore:install`](https://github.com/synchestra-io/ai-plugin-specscore/tree/main/skills/install) |
 | **[datatug-cli](https://github.com/datatug/datatug-cli)**<br>*[install](https://datatug.io/docs/install/)* | ✅ [`get-cli`](https://datatug.io/install/get-cli) | ✅ [`get-cli.ps1`](https://datatug.io/install/get-cli.ps1) | ✅ `datatug/tap` | — | — | — | — | ✅ | [`datatug@sneat-co`](https://github.com/datatug/datatug-ai-skills) | [`datatug:install`](https://github.com/datatug/datatug-ai-skills/tree/main/skills/install) |
 | **[ingitdb-cli](https://github.com/ingitdb/ingitdb-cli)**<br>*[install](https://ingitdb.com/docs)* | 🚧 see [gap](#ingitdb--three-checksum-manifests) | 🚧 | ✅ `ingitdb/cli` | ✅ | ✅ `ingitdb/scoop-bucket` | ✅ AUR (`ingitdb-bin`) + Snap | ✅ | ✅ | [`ingitdb@sneat-co`](https://github.com/ingitdb/ingitdb-ai-skills) | [`ingitdb:install`](https://github.com/ingitdb/ingitdb-ai-skills/tree/main/skills/install) |
-| **[synchestra](https://github.com/synchestra-io/synchestra)**<br>*[install](https://github.com/synchestra-io/synchestra#installation)* | 🚧 see [gap](#synchestra--multi-component-releases-repo) | 🚧 | 🚧 pending tap repo¹ | — | — | — | — | ✅ | [`synchestra@sneat-co`](https://github.com/synchestra-io/ai-plugin-synchestra) | [`synchestra:install`](https://github.com/synchestra-io/ai-plugin-synchestra/tree/main/skills/install) |
+| **[synchestra](https://github.com/synchestra-io/synchestra)**<br>*[install](https://synchestra.io/install/)* | ✅ [`get-cli`](https://synchestra.io/install/get-cli) | ✅ [`get-cli.ps1`](https://synchestra.io/install/get-cli.ps1) | 🚧 pending tap repo¹ | — | — | — | — | ✅ | [`synchestra@sneat-co`](https://github.com/synchestra-io/ai-plugin-synchestra) | [`synchestra:install`](https://github.com/synchestra-io/ai-plugin-synchestra/tree/main/skills/install) |
 | **[sneat-go-cli](https://github.com/sneat-co/sneat-go-cli)** | planned | planned | planned | planned | planned | planned | — | planned | _none yet_ | _none yet_ |
+| **[synchestra-host](https://github.com/synchestra-io/synchestra-servers)** ² | ⚠️ [`get-host`](https://synchestra.io/get-host) (pre-unified) | — | — | — | — | — | — | — | _n/a — server_ | _n/a — server_ |
+| **[synchestra-channel](https://github.com/synchestra-io/synchestra-servers)** ² | ⚠️ [`get-channel`](https://synchestra.io/get-channel) (pre-unified) | — | — | — | — | — | — | — | _n/a — server_ | _n/a — server_ |
+| **[synchestra-runner](https://github.com/synchestra-io/synchestra-servers)** ² | ⚠️ [`get-runner`](https://synchestra.io/get-runner) (pre-unified) | — | — | — | — | — | — | — | _n/a — server_ | _n/a — server_ |
 
-Legend: ✅ shipping · 🚧 blocked / pending · — not applicable
+Legend: ✅ shipping · ⚠️ shipping but not yet on the unified pattern · 🚧 blocked / pending · — not applicable
 
-¹ The shared Homebrew tap `synchestra-io/homebrew-tap` ships specscore today; synchestra will join it once its release pipeline converges on the unified convention (see [gap](#synchestra--multi-component-releases-repo)).
+¹ The shared Homebrew tap [`synchestra-io/homebrew-tap`](https://github.com/synchestra-io/homebrew-tap) is live and will ship specscore on the next release. Synchestra CLI will join once an actual `cli-v*` release is cut (the `brews:` block needs to be added to its `.goreleaser.yml` first).
+
+² Synchestra server CLIs share the [`synchestra-io/synchestra-releases`](https://github.com/synchestra-io/synchestra-releases) artifact host with the synchestra CLI but use the `servers-v*` tag prefix. They predate the unified install-script template and use their own `get-*` scripts at the synchestra.io root. See the [gap](#synchestra-server-cli-migration) below.
 
 ## Unified install convention
 
-Every CLI in this index should converge on the following shape. The first two CLIs above (`specscore`, `datatug`) already follow it end-to-end; the rest have documented gaps below.
+Every CLI in this index should converge on the following shape. The first three CLIs above (`specscore`, `datatug`, `synchestra`) already follow it end-to-end; the rest have documented gaps below.
 
 ### Artifacts (produced by GoReleaser)
 
@@ -42,15 +49,26 @@ The marketing site's build pipeline fetches the scripts from the CLI repo at bui
 
 ### Install script invariants
 
-Across CLIs, the install scripts differ **only** in three values declared at the top of the file:
+Across CLIs, the install scripts differ **only** in the top-of-file configuration block. For a single-repo CLI (source and releases in the same repo, plain `v*` tags), only three values matter:
 
 ```sh
 REPO="{org}/{cli-repo}"        # e.g. datatug/datatug-cli
 BIN_NAME="{project}"           # e.g. datatug
 # (and the env-var prefix used in DATATUG_VERSION, DATATUG_INSTALL_DIR)
+RELEASES_REPO=""               # empty → defaults to $REPO
+RELEASE_TAG_PREFIX=""          # empty → no prefix (use /releases/latest)
 ```
 
-Everything else — OS/arch detection, archive URL construction, checksum verification, install-dir resolution, PATH advisory, shadow-binary cleanup — is byte-identical. New CLIs can be added by copying the template from [`datatug-cli/scripts/install.sh`](https://github.com/datatug/datatug-cli/blob/main/scripts/install.sh) and changing those three values.
+For CLIs whose binaries ship to a multi-component releases repo (e.g. `synchestra-io/synchestra-releases` holds `cli-v*`, `servers-v*`, …), two more knobs come into play — but the script body is unchanged:
+
+```sh
+REPO="synchestra-io/synchestra"
+BIN_NAME="synchestra"
+RELEASES_REPO="synchestra-io/synchestra-releases"   # download from here
+RELEASE_TAG_PREFIX="cli-"                           # filter releases by this prefix
+```
+
+Everything else — OS/arch detection, archive URL construction, checksum verification, install-dir resolution, PATH advisory, shadow-binary cleanup — is byte-identical. New CLIs can be added by copying the template from [`datatug-cli/scripts/install.sh`](https://github.com/datatug/datatug-cli/blob/main/scripts/install.sh) and changing the config block.
 
 ### Install directory defaults
 
@@ -94,28 +112,24 @@ The unified install script expects a single manifest at `{project}_{version}_che
 
 Until resolved, ingitdb users have brew/AUR/snap/winget/choco/scoop/go — six install channels — so no user is blocked.
 
-### `synchestra` — multi-component releases repo
+### Synchestra server CLI migration
 
-synchestra CLI binaries are published to a sibling repo, `synchestra-io/synchestra-releases`, which already hosts multi-component releases:
+The three server-component CLIs (`synchestra-host`, `synchestra-channel`, `synchestra-runner`) currently install via legacy scripts at the synchestra.io root (`/get-host`, `/get-channel`, `/get-runner`). Each script is hand-rolled, doesn't share structure with the unified template, and lacks the PathAdvisory + shadow-binary handling the unified scripts ship with.
 
-```
-synchestra-io/synchestra-releases
-├── cli-v0.x.y       ← CLI binaries (planned)
-├── servers-v0.x.y   ← Servers binaries (10+ existing releases)
-├── hub-v0.x.y       ← future
-└── ws-v0.x.y        ← future
-```
+To migrate:
 
-The `cli-` tag prefix and the cross-repo upload are intentional: they let one releases repo host the whole Synchestra umbrella. The current `synchestra-cli/.goreleaser.yml` sets `release.disable: true` and a follow-up workflow step uploads `dist/*` to the releases repo with tag `cli-${TAG}`.
+1. Add `scripts/install-{host,channel,runner}.{sh,ps1}` to [`synchestra-io/synchestra-servers`](https://github.com/synchestra-io/synchestra-servers) using the unified template, with these config blocks:
+   ```sh
+   REPO="synchestra-io/synchestra-servers"
+   BIN_NAME="synchestra-{host|channel|runner}"
+   RELEASES_REPO="synchestra-io/synchestra-releases"
+   RELEASE_TAG_PREFIX="servers-"
+   ```
+2. Host them at `synchestra.io/install/get-{host,channel,runner}{,.ps1}` (mirror the synchestra-cli setup).
+3. Add 301 redirects from `/get-{host,channel,runner}` to the new canonical paths.
+4. Update [`synchestra-ws/README.md`](https://github.com/synchestra-io/synchestra-ws) and any docs that reference the old URLs.
 
-The unified install script assumes `github.com/{REPO}/releases/download/${TAG}/...` — single repo, plain `v*` tags. For synchestra it needs:
-
-- `RELEASES_REPO` (different from source `REPO`): `synchestra-io/synchestra-releases`
-- `RELEASE_TAG_PREFIX`: `cli-`
-
-These can be added as two optional template variables (empty defaults for the other CLIs). Until that template extension lands, the `https://synchestra.io/get-cli` reference in [synchestra/README.md](https://github.com/synchestra-io/synchestra) is aspirational.
-
-The synchestra.io marketing site source lives at [`synchestra-io/synchestra-ws/apps/landing/src/`](https://github.com/synchestra-io/synchestra-ws/tree/main/apps/landing/src) — once the install scripts exist in `synchestra-cli/scripts/`, copying them into `apps/landing/src/install/` is one PR.
+This is mechanical work — the template already supports the multi-component releases shape. Until done, the server CLIs use their pre-unified install scripts, which work but lack the polish (PATH advisory, shadow-binary cleanup, PowerShell) of the unified scripts.
 
 ### `sneat-go-cli` — not yet built
 
@@ -123,9 +137,9 @@ Currently README-only. When implementation begins, the cleanest path is to start
 
 ## Open questions
 
-- **`synchestra-io/homebrew-tap` repo provisioning.** A shared tap (one repo, one formula per CLI) is the standard pattern (hashicorp/homebrew-tap, goreleaser/homebrew-tap, …). The repo needs to exist with a `main` branch before the next specscore release runs goreleaser. Initial commit ready locally; awaiting `gh repo create`.
 - **datatug-io deployment.** The datatug.io site currently has no deployment configuration (`firebase.json`, `vercel.json`, etc.). Once a host is chosen, ensure `/install/get-cli` is served with `Content-Type: text/x-shellscript` (the curl-pipe-to-sh flow works regardless of content-type, but proper headers improve `curl -O` ergonomics and editor previews).
-- **Plugin install verification.** Every plugin listed has an `install` skill (`{cli}:install`). Manual smoke-test of each skill against this matrix would catch any drift.
+- **specscore `/install/` canonical.** specscore.md uses site-wide `trailingSlash: false`, so `/install` is canonical and `/install/` 301-redirects to it (opposite of datatug.io and synchestra.io, which use `/install/` canonical). Both URLs work everywhere, but the redirect direction differs by site. Unifying specscore to trailing-slash canonical would either require flipping `trailingSlash` globally (affects every page) or restructuring `install.md` → `install/index.md` (site-generator change). Low priority — both URLs already resolve correctly.
+- **Plugin install verification.** Every AI-facing CLI has an `install` skill (`{cli}:install`). Manual smoke-test of each skill against this matrix would catch any drift.
 
 ## Maintenance
 
