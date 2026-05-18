@@ -4,7 +4,9 @@ Claude Code marketplace for AI plugins published across the projects listed belo
 
 > **Looking for the CLIs themselves?** This marketplace indexes Claude Code **plugins** (skill bundles that teach AI agents how to drive each CLI). The CLIs are separate binaries that humans (and CI) install on a workstation. See [CLIs.md](CLIs.md) for the install matrix, unified install convention, and the canonical `curl … | sh` URLs.
 >
-> **Indexed CLIs:** [`specscore`](https://github.com/synchestra-io/specscore-cli), [`datatug`](https://github.com/datatug/datatug-cli), [`ingitdb`](https://github.com/ingitdb/ingitdb-cli), [`synchestra`](https://github.com/synchestra-io/synchestra), [`sneat-go-cli`](https://github.com/sneat-co/sneat-go-cli) _(planned)_.
+> **Indexed CLIs:** [`synchestra`](https://github.com/synchestra-io/synchestra), [`datatug`](https://github.com/datatug/datatug-cli), [`ingitdb`](https://github.com/ingitdb/ingitdb-cli), [`sneat-go-cli`](https://github.com/sneat-co/sneat-go-cli) _(planned)_.
+>
+> **Looking for SpecScore plugins?** `specscore` and `specstudio` moved to their own dedicated marketplace at [`specscore/ai-marketplace`](https://github.com/specscore/ai-marketplace) on 2026-05-18 — symmetric with the standard's home at [`specscore.md`](https://specscore.md) and SpecScore Studio at [`specscore.studio`](https://specscore.studio).
 
 ## Install
 
@@ -18,7 +20,7 @@ Then install any plugin from it:
 
 ```
 /plugin install synchestra@sneat-co
-/plugin install specstudio@sneat-co
+/plugin install datatug@sneat-co
 ```
 
 ## Plugins by project
@@ -28,8 +30,16 @@ Then install any plugin from it:
 | Plugin | Install | Repository |
 |---|---|---|
 | `synchestra` | `/plugin install synchestra@sneat-co` | [ai-plugin-synchestra](https://github.com/synchestra-io/ai-plugin-synchestra) |
-| `specscore` | `/plugin install specscore@sneat-co` | [ai-plugin-specscore](https://github.com/synchestra-io/ai-plugin-specscore) |
-| `specstudio` | `/plugin install specstudio@sneat-co` | [specstudio-skills](https://github.com/synchestra-io/specstudio-skills) |
+
+### [SpecScore](https://specscore.md) *(moved to dedicated marketplace)*
+
+The SpecScore-aligned plugins (`specscore`, `specstudio`) moved to [`specscore/ai-marketplace`](https://github.com/specscore/ai-marketplace) on 2026-05-18 — symmetric with [`specscore.md`](https://specscore.md) (the standard) and [`specscore.studio`](https://specscore.studio) (the editor). To install them:
+
+```
+/plugin marketplace add specscore/ai-marketplace
+/plugin install specscore@specscore
+/plugin install specstudio@specscore
+```
 
 ### [inGitDB](https://ingitdb.com)
 
@@ -55,14 +65,6 @@ Then install any plugin from it:
 ### `synchestra`
 
 Wraps the [`synchestra` CLI](https://github.com/synchestra-io/synchestra) as agent skills, slash commands, and hooks. One skill per CLI command; token-efficient; progressively loaded. The natural install path after the CLI binary itself.
-
-### `specscore`
-
-Wraps the [`specscore` CLI](https://github.com/synchestra-io/specscore-cli) as agent skills. Teaches AI agents how to use `specscore` for spec navigation, linting, and lifecycle operations. Pairs with `specstudio` for the full authoring experience.
-
-### `specstudio`
-
-SpecStudio's AI skills for spec-driven development as a project-level studio — ideate, design, and (on the roadmap) plan, build, verify, recap, review, ship. Gates implementation on lint-clean SpecScore artifacts and user approval. Works standalone with Claude Code; pairs with Synchestra Hub for remote execution. Skill identifiers use the `specstudio:*` prefix (e.g., `specstudio:ideate`, `specstudio:specify`). Distributed from [`specstudio-skills`](https://github.com/synchestra-io/specstudio-skills).
 
 ### `ingitdb`
 
