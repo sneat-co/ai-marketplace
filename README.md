@@ -2,6 +2,10 @@
 
 Claude Code marketplace for AI plugins published across the projects listed below.
 
+> **Looking for the CLIs themselves?** This marketplace indexes Claude Code **plugins** (skill bundles that teach AI agents how to drive each CLI). The CLIs are separate binaries that humans (and CI) install on a workstation. See [CLIs.md](CLIs.md) for the install matrix, unified install convention, and the canonical `curl … | sh` URLs.
+>
+> **Indexed CLIs:** [`specscore`](https://github.com/synchestra-io/specscore-cli), [`datatug`](https://github.com/datatug/datatug-cli), [`ingitdb`](https://github.com/ingitdb/ingitdb-cli), [`synchestra`](https://github.com/synchestra-io/synchestra), [`sneat-go-cli`](https://github.com/sneat-co/sneat-go-cli) _(planned)_.
+
 ## Install
 
 Add this marketplace to Claude Code once:
