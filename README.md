@@ -78,7 +78,7 @@ The SpecScore-aligned plugins (`specscore`, `specstudio`) moved to [`specscore/a
 
 | Plugin | Install | Repository |
 |---|---|---|
-| `datatug` | `/plugin install datatug@sneat-co` | [datatug-ai-skills](https://github.com/datatug/datatug-ai-skills) |
+| `datatug` | `/plugin install datatug@sneat-co` | [ai-plugin](https://github.com/datatug/ai-plugin) |
 
 ### Planned
 
@@ -107,7 +107,7 @@ Wraps the [`ingitdb` CLI](https://github.com/ingitdb/ingitdb-cli) as agent skill
 
 ### `datatug`
 
-Wraps the [`datatug` CLI](https://github.com/datatug/datatug-cli) as agent skills. Teaches AI agents how to use `datatug` for data exploration, dataset management, schema scanning, and query execution. Distributed from [`datatug-ai-skills`](https://github.com/datatug/datatug-ai-skills).
+Wraps the [`datatug` CLI](https://github.com/datatug/datatug-cli) as agent skills for project discovery, schema scans, saved queries, local MCP setup, and the MCP Apps Explorer developer preview. Distributed from [`ai-plugin`](https://github.com/datatug/ai-plugin).
 
 ## Why a meta-marketplace
 

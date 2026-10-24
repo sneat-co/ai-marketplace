@@ -27,15 +27,15 @@
         "source": "github",
         "repo": "ingitdb/ingitdb-ai-skills"
       },
-      "description": "inGitDB CLI plugin: skills that teach AI agents how to use the ingitdb CLI for Git-backed database operations — validate, list, describe, CRUD, and serve."
+      "description": "inGitDB CLI plugin: skills that teach AI agents how to use the ingitdb CLI for Git-backed database operations \u2014 validate, list, describe, CRUD, and serve."
     },
     {
       "name": "datatug",
       "source": {
         "source": "github",
-        "repo": "datatug/datatug-ai-skills"
+        "repo": "datatug/ai-plugin"
       },
-      "description": "DataTug CLI plugin: skills that teach AI agents how to use the datatug CLI for data exploration, dataset management, schema scanning, and query execution."
+      "description": "DataTug CLI skills for project discovery, schema scans, saved queries, local MCP setup, and the MCP Apps Explorer developer preview."
     }
   ]
 }
